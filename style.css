@@ -140,7 +140,7 @@ main {
   font-size: 1.0625rem;
   line-height: 1.65;
   color: var(--text-muted);
-  max-width: 480px;
+  /* max-width: 480px; */
 }
 
 /* Products */
