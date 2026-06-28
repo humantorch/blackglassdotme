@@ -15,6 +15,37 @@
   --text-dim: #374151;
   --accent: #7dd3fc;
   --accent-dim: rgba(125, 211, 252, 0.15);
+  --heading: #ffffff;
+  --install-bg: rgba(0, 0, 0, 0.35);
+  --install-text: #9ca3af;
+  --install-code: #d1d5db;
+  --gradient-1: rgba(125, 211, 252, 0.06);
+  --gradient-2: rgba(99, 102, 241, 0.04);
+  --toggle-bg: rgba(255, 255, 255, 0.06);
+  --toggle-bg-hover: rgba(255, 255, 255, 0.11);
+  --toggle-border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+  --bg: #f2f5f9;
+  --surface: rgba(255, 255, 255, 0.7);
+  --surface-hover: rgba(255, 255, 255, 0.95);
+  --border: rgba(0, 0, 0, 0.08);
+  --border-accent: rgba(0, 0, 0, 0.16);
+  --text: #1a2233;
+  --text-muted: #4b5563;
+  --text-dim: #9ca3af;
+  --accent: #0284c7;
+  --accent-dim: rgba(2, 132, 199, 0.1);
+  --heading: #111827;
+  --install-bg: rgba(0, 0, 0, 0.05);
+  --install-text: #9ca3af;
+  --install-code: #374151;
+  --gradient-1: rgba(125, 211, 252, 0.18);
+  --gradient-2: rgba(99, 102, 241, 0.08);
+  --toggle-bg: rgba(0, 0, 0, 0.05);
+  --toggle-bg-hover: rgba(0, 0, 0, 0.09);
+  --toggle-border: rgba(0, 0, 0, 0.1);
 }
 
 html {
@@ -26,13 +57,14 @@ html {
 body {
   background-color: var(--bg);
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(125, 211, 252, 0.06), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(99, 102, 241, 0.04), transparent);
+    radial-gradient(ellipse 80% 50% at 50% -10%, var(--gradient-1), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 80%, var(--gradient-2), transparent);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 main {
@@ -42,6 +74,45 @@ main {
   margin: 0 auto;
   padding: 6rem 2rem 4rem;
 }
+
+/* Theme toggle */
+
+.theme-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--toggle-bg);
+  border: 1px solid var(--toggle-border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--toggle-bg-hover);
+  border-color: var(--border-accent);
+  color: var(--text);
+}
+
+.theme-toggle svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* Show sun in dark mode (click → go light), moon in light mode (click → go dark) */
+.icon-moon { display: none; }
+.icon-sun  { display: block; }
+
+[data-theme="light"] .icon-moon { display: block; }
+[data-theme="light"] .icon-sun  { display: none; }
 
 /* Brand header */
 
@@ -53,7 +124,7 @@ main {
   font-size: clamp(2rem, 6vw, 3.25rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: #fff;
+  color: var(--heading);
   margin-bottom: 1.25rem;
   line-height: 1.1;
 }
@@ -112,7 +183,7 @@ main {
 .product-name {
   font-size: 1.0625rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--heading);
   letter-spacing: -0.01em;
 }
 
@@ -158,6 +229,15 @@ main {
   border-color: rgba(125, 211, 252, 0.3);
 }
 
+[data-theme="light"] .link {
+  border-color: rgba(2, 132, 199, 0.15);
+}
+
+[data-theme="light"] .link:hover {
+  background: rgba(2, 132, 199, 0.18);
+  border-color: rgba(2, 132, 199, 0.3);
+}
+
 .link-secondary {
   color: var(--text-muted);
   background: transparent;
@@ -176,13 +256,13 @@ main {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(0, 0, 0, 0.35);
+  background: var(--install-bg);
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 0.4375rem 0.75rem;
   font-family: "SF Mono", ui-monospace, "Cascadia Code", Menlo, monospace;
   font-size: 0.75rem;
-  color: #9ca3af;
+  color: var(--install-text);
   white-space: nowrap;
   overflow-x: auto;
   max-width: 100%;
@@ -195,7 +275,7 @@ main {
 }
 
 .install code {
-  color: #d1d5db;
+  color: var(--install-code);
 }
 
 /* Footer */
