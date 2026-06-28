@@ -123,15 +123,15 @@ main {
 
 .brand-name {
   font-size: clamp(2.75rem, 9vw, 5rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  font-weight: 100;
+  letter-spacing: 0.08em;
   color: var(--heading);
   margin-bottom: 1.5rem;
   line-height: 1;
 }
 
 .brand-name span {
-  background: linear-gradient(135deg, #e0f2fe 0%, var(--accent) 55%, #818cf8 100%);
+  background: linear-gradient(135deg, #fff 1%, var(--accent) 55%, #000000 99%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
