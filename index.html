@@ -77,6 +77,24 @@
             <li>Quick Ask modal for one-shot queries without a full session</li>
             <li>Context menus on notes and selected text</li>
           </ul>
+          <div class="terminal-preview" aria-hidden="true">
+            <div class="terminal-chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="terminal-chrome-label">blackglass — vault</span>
+            </div>
+            <div class="terminal-body">
+              <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">claude</span></div>
+              <div class="t-line t-dim">Claude Code · MCP: vault-tools active</div>
+              <div class="t-line">&nbsp;</div>
+              <div class="t-line"><span class="t-user">›</span> What decisions did I make last week?</div>
+              <div class="t-line">&nbsp;</div>
+              <div class="t-line t-response"><span class="t-tool">vault_search</span>("decisions", range="7d")</div>
+              <div class="t-line t-dim">&nbsp;&nbsp;Found 4 notes · 2 decision logs · 1 RFC draft</div>
+              <div class="t-line">&nbsp;</div>
+              <div class="t-line t-response">Here's what I found across your notes...</div>
+              <div class="t-line"><span class="t-cursor">▋</span></div>
+            </div>
+          </div>
           <div class="product-links">
             <a class="link" href="https://community.obsidian.md/plugins/blackglass" target="_blank" rel="noopener">
               Install from Obsidian
