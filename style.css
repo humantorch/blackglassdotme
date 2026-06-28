@@ -73,7 +73,7 @@ main {
   max-width: 760px;
   width: 100%;
   margin: 0 auto;
-  padding: 9rem 2rem 5rem;
+  padding: 5rem 2rem 4rem;
 }
 
 /* Theme toggle */
@@ -118,7 +118,7 @@ main {
 /* Brand header */
 
 .brand {
-  margin-bottom: 7.5rem;
+  margin-bottom: 4.5rem;
 }
 
 .brand-name {
